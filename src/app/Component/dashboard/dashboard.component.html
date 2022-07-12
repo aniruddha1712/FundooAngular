@@ -1,0 +1,64 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="black" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div>
+      <img class="keepImage" src="../../../assets/keep_2020q4_48dp.png">
+    </div>
+    <h1 class="example-app-name">Fundoo</h1>
+
+    <div class="searchbox">
+      <img class="search-icon" src="../../../assets/search_FILL0_wght400_GRAD0_opsz48.svg">
+      <input class="search" placeholder="Search">
+    </div>
+    <div class="nav">
+      <button class="button"><img class="refres-icon"
+          src="../../../assets/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <button class="button"><img class="agenda-icon"
+          src="../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <button class="button"><img class="setting-icon"
+          src="../../../assets/settings_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <button class="button"><img class="apps-icon"
+          src="../../../assets/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+    <div>
+      <button class="button"><img class="account-icon"
+          src="../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg"></button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                         [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list class="sidenav"> 
+        <a mat-list-item routerLink="/dashboard/notes">
+          <img class="icon" src="../../../assets/lightbulb_black_24dp.svg" alt="notes">
+          Notes</a>
+        <a mat-list-item routerLink=".">
+          <img class="icon" src="../../../assets/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt="Reminder">
+          Reminder</a>
+        <a mat-list-item routerLink=".">
+          <img class="icon" src="../../../assets/edit_FILL0_wght400_GRAD0_opsz48.svg" alt="Edit Lable">
+          Edit Lable</a>
+        <a mat-list-item routerLink="/dashboard/archive">
+          <img class="icon" src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg" alt="archive">
+          Archive</a>
+        <a mat-list-item routerLink="/dashboard/trash">
+          <img class="icon" src="../../../assets/delete_FILL0_wght400_GRAD0_opsz48.svg" alt="Trash">
+          Trash</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,21 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-between center">
+    <div class="note" fxLayout="column" fxLayoutAlign="center start">
+        <form [formGroup]="createnote" (ngSubmit)="saveNote()">
+            <div class="note-title"fxLayout="row" fxLayoutAlign="space-between center" *ngIf="isShow">
+                <input class="title" placeholder="Title" formControlName="title">
+                <img class="pin-icon" src="../../../assets/push_pin_FILL0_wght400_GRAD0_opsz48.svg" alt="pin">
+            </div>
+
+            <div *ngIf="!isShow || isShow" (click)="show()">
+                <input class="takenote" placeholder="Take a note ..." formControlName="desc">
+            </div>
+        </form>
+        
+        <div class="icons" fxLayout="row" fxLayoutAlign="space-between center" *ngIf="isShow">
+            <app-icons></app-icons>
+            <div class="close">
+                <button mat-button (click)="saveNote()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

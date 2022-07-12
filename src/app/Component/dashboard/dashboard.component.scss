@@ -1,0 +1,125 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  background-color:white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-toolbar{
+  //border: 1px solid red;
+  background-color:transparent;
+  height: 60px;
+  box-sizing: border-box;
+  border-bottom: solid 1px rgba(0,0,0,0.12);
+  margin: 0;
+  }
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+  color: black;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+  background-color:white;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.sidenav{
+  width: 200px;
+}
+
+.icon{
+  block-size: 30px;
+  padding-right: 20px;
+}
+
+.keepImage{
+  height: 39px; padding-left: 20px;
+}
+
+.searchbox{
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  padding-top: 5px;
+  background: #f1f3f4;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  width: 700px;
+  height: 35px;
+  margin-left: 80px;
+  box-shadow: 2px 2px 5px #E8E8E8;
+}
+.searchbox:active{
+  background-color: white;
+}
+
+.search{
+  height: 30px;
+  border: 0px white; 
+  background: none;
+  width: 700px; 
+  font-size: large;
+}
+
+input {border:0;outline:0;}
+
+.toolbarSetting
+{
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+.button
+{
+  border: 0px;
+  background-color: transparent;
+  padding-left: 15px;
+}
+.nav{
+  margin-left: 10%
+}
+
+.search-icon{
+  margin-left: 10px; 
+  margin-right: 10px;
+  height: 30px;
+  padding-top: 5px; 
+  block-size: 23px;
+}
+.account-icon{
+  padding-top: 12px; 
+  padding-left: 0px;
+  block-size: 23px;
+}
+.apps-icon{
+  padding-top: 12px; 
+  padding-left: 30px;
+  block-size: 23px;
+}
+.refres-icon{
+  padding-top: 10px;
+  block-size: 23px;
+}
+.agenda-icon,.setting-icon{
+  padding-top: 10px;
+  block-size: 23px;
+}

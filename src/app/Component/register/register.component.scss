@@ -1,0 +1,97 @@
+.outer-container{
+  border: 2px solid black;
+  height: 100vh;
+}
+
+.main-container{
+  border: 1px solid grey;
+  border-radius: 1%;
+  width: 50%;
+  height: 90%;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.logo-f{
+  color: blue;
+}
+.logo-u{
+  color: red;
+}
+.logo-n{
+  color: orange;
+}
+.logo-d{
+  color: blue;
+}
+.logo-o{
+  color: green;
+}
+.logo-2o{
+  color: red;
+}
+
+.input-form{
+  border: 2px;
+  width: 63%;
+  height: 100%;
+}
+
+.next-button{
+  padding-top: 20px;
+  width: 100%;
+}
+
+.for-image{
+  border: 0px;
+  width: 35%;
+  height: 100%;
+}
+
+img{
+  width: 80%;
+  height: 40%;
+}
+
+.hint{
+  font-size: small;
+  padding-left: 14px;
+}
+
+.router{
+  color: blue;
+  cursor: pointer;
+}
+
+.main-container-md,.input-form-md{
+  width: 90%;
+  height: 100%;
+}
+
+.main-container-xs{
+  width: 90%;
+  height: 90%;
+}
+.input-form-xs{
+  width: 70%;
+  height: 80%;
+}
+.for-image-xs,.for-image-sm{
+  width: 0%;
+}
+
+.name-pass-input-xs{
+  width: 50%;
+  height: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.name-pass-input-sm{
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
