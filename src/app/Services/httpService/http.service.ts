@@ -25,7 +25,13 @@ export class HttpService {
     return this.httpclient.get(url,token && httpOtions)
   }
 
-  deleteService(){
-    
+  patchService(url:string, reqdata:any){
+    console.log(reqdata);
+    return this.httpclient.patch(url,reqdata)
+  }
+
+  deleteService(url:string, reqdata:any){
+    console.log(reqdata);
+    return this.httpclient.delete(url,reqdata)
   }
 }

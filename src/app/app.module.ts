@@ -16,6 +16,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
 
 import { RegisterComponent } from './Component/register/register.component';
 import { LoginComponent } from './Component/login/login.component';
@@ -29,6 +31,7 @@ import { DisplayNoteComponent } from './Component/display-note/display-note.comp
 import { GetAllNotesComponent } from './Component/get-all-notes/get-all-notes.component';
 import { ArchiveComponent } from './Component/archive/archive.component';
 import { TrashComponent } from './Component/trash/trash.component';
+import { UpdateComponent } from './Component/update/update.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { TrashComponent } from './Component/trash/trash.component';
     DisplayNoteComponent,
     GetAllNotesComponent,
     ArchiveComponent,
-    TrashComponent
+    TrashComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { TrashComponent } from './Component/trash/trash.component';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

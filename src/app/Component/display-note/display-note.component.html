@@ -1,14 +1,14 @@
-<div class="container" fxLayout="column" fxLayoutAlign="space-between center">
-  <div class="note" fxLayout="column" fxLayoutAlign="center start">
+<div class="container" ngClass.xs="container-xs" ngClass.md="container-md" 
+    fxLayout="row" fxLayoutAlign="start stretch">
+  <div class="note" fxLayout="column" fxLayoutAlign="center start" *ngFor="let note of childMessage">
     <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
-      <span>Title</span>
+      <span (click)="openDialog(note)">{{note.Title}}</span>
       <img class="pin-icon" src="../../../assets/push_pin_FILL0_wght400_GRAD0_opsz48.svg" alt="pin">
     </div>
 
-    <div class="takenote">
-        <span>Description Description Description Description</span>
-
+    <div class="takenote" (click)="openDialog(note)">
+        <span>{{note.TakeNote}}</span>
     </div>
-    <app-icons></app-icons>
+    <app-icons [noteObj]="note"></app-icons>
   </div>
 </div>

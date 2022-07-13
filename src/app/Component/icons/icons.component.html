@@ -1,10 +1,28 @@
-<div class="container" fxLayout="row" fxLayoutAlign="center center">
-  <div class="icon-row" fxLayout="row" fxLayoutAlign="space-between center">
+<div class="container" fxLayout="row" fxLayoutAlign="start center">
+  <div class="icon-row" fxLayout="row" fxLayoutAlign="space-around center">
     <img src="../../../assets/add_alert_FILL0_wght400_GRAD0_opsz48.svg">
     <img src="../../../assets/person_add_FILL0_wght400_GRAD0_opsz48.svg">
     <img src="../../../assets/palette_FILL0_wght400_GRAD0_opsz48.svg">
     <img src="../../../assets/image_FILL0_wght400_GRAD0_opsz48.svg">
-    <img src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg">
-    <img src="../../../assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg">
+    <div class="icons">
+      <button mat-icon-button matTooltip="Archive" (click)="archive();">
+        <img src="../../../assets/archive_FILL0_wght400_GRAD0_opsz48.svg">
+      </button>
+    </div>
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <!-- <img src="../../../assets/more_vert_FILL0_wght400_GRAD0_opsz48.svg"> -->
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span (click)="trash()">Delete note</span>
+        </button>
+        <button mat-menu-item>
+          <span>Add label</span>
+        </button>
+      </mat-menu>
+    </div>
   </div>
 </div>
+

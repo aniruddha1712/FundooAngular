@@ -1,22 +1,23 @@
 .container{
   display: flex;
-  justify-content:space-around;
-  padding: 5px;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: white;
 }
+
 .note{
-  margin: 10px;
+  margin: 8px;
   display: flex;
   flex-direction: column;
   align-content: center;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   border: 1px solid lightgray;
   width: 250px;
   height: fit-content;
 }
 .note:hover{
-  box-shadow: 1px 1px 10px #E8E8E8;
+  box-shadow: 0px 0px 2px grey;
 }
 .title{
   width: 99%;
@@ -28,7 +29,7 @@ span{
   padding-bottom: 10px;
 }
 .takenote{
-  height: 30px;   
+  height: fit-content;   
   font-size: 14px;
   word-wrap:break-word;
   width: 99%; 
@@ -38,4 +39,21 @@ span{
   padding-left: 25px;
   padding-top: 1px;
   block-size: 23px;
+}
+
+app-icons,.pin-icon{
+  visibility: hidden;
+}
+.note:hover,.note:visited,.note:focus-within,.note:active{
+  app-icons,.pin-icon{visibility: visible;}
+}
+
+.main-container-md{
+  width: 90%;
+  height: 100%;
+}
+
+.main-container-xs{
+  width: 90%;
+  height: 90%;
 }

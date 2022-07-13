@@ -40,13 +40,13 @@
         <div class="name-pass-input" ngClass.xs="name-pass-input-xs" ngClass.md="name-pass-input-md" fxLayout="row" fxLayoutAlign="space-between center">
           <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" formControlName="password">
+            <input [type]="inputType" matInput placeholder="Password" formControlName="password">
             <mat-error>Enter valid password</mat-error>
           </mat-form-field>
 
           <mat-form-field appearance="outline">
             <mat-label>Confirm</mat-label>
-            <input matInput placeholder="Confirm" formControlName="confirm">
+            <input [type]="inputType" matInput placeholder="Confirm" formControlName="confirm">
             <mat-error>Password not matched</mat-error>
           </mat-form-field>
         </div>
@@ -54,7 +54,8 @@
         <p class="hint">Use 8 or more characters with a mix of
           letters, numbers & symbols </p>
         <div class="showCheckbox">
-          <mat-checkbox class="example-margin">Show password</mat-checkbox>
+          <input type="checkbox" (change)="showPass($event)" class="example-margin">Show password
+          <!-- <mat-checkbox (change)="showPass($event)" class="example-margin">Show password</mat-checkbox> -->
         </div>
 
         <div class="next-button" fxLayout="row" fxLayoutAlign="space-between center">

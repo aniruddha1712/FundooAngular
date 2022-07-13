@@ -10,6 +10,16 @@ import { UserService } from 'src/app/Services/userService/user.service';
 export class RegisterComponent implements OnInit {
   registerForm !: FormGroup;
 
+  public inputType:string = 'password';
+  public showPass(event:any):void{
+    if(event.target.checked){
+      this.inputType = 'text';
+    }
+    else{
+      this.inputType = 'password';
+    }
+  }
+
   constructor( private fb:FormBuilder, private user:UserService) { }
 
   ngOnInit(): void {
