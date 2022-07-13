@@ -5,11 +5,10 @@
   </div>
 
   <div class="takenote">
-    <input type="text"[(ngModel)]="desc">
+    <textarea [(ngModel)]="desc"></textarea>
   </div>
   <div class="icons" fxLayout="row" fxLayoutAlign="space-between center">
     <app-icons></app-icons>
     <button mat-button (click)="onClick()">Close</button>
   </div>
 </div>
-

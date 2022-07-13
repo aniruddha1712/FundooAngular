@@ -14,19 +14,21 @@
 }
 .title{
   width: 99%;
-  height: 30px;
+  height: fit-content;
   font-weight: 100px;
   font-size: 14px;
 }   
-input{
+input,textarea{
   padding-bottom: 10px;
   border:0;
   outline:0;
+  height: fit-content;
+  width: 90%;
 }
-.takenote{
-  height: 30px;   
+.takenote,textarea{
+  height: fit-content;
+  font-family: sans-serif;   
   font-size: 14px;
-  word-wrap:break-word;
   width: 99%; 
   padding-bottom: 10px;
 }

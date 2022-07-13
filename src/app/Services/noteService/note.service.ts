@@ -78,4 +78,16 @@ export class NoteService {
     }
     return this.http.getService('https://localhost:44378/api/Note/gettrashnotes',true,header)
   }
+
+  restore(noteId: any){
+    console.log(noteId);
+    console.log("Note restored");
+    return this.http.patchService(`https://localhost:44378/api/Note/restorefromtrash/${noteId}`,noteId);
+  }
+
+  delete(noteId: any){
+    console.log(noteId);
+    console.log("Note deleted");
+    return this.http.deleteService(`https://localhost:44378/api/Note/deleteforever/${noteId}`,noteId);
+  }
 }
