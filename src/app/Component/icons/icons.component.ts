@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 
 @Component({
@@ -18,6 +18,7 @@ export class IconsComponent implements OnInit {
                 {Colorcode:"#fdcfe8", name:"Pink"},{Colorcode:"#e6c9a8", name:"Brown"},{Colorcode:"#e8eaed", name:"Gray"}];
 
   constructor(private noteService:NoteService) { }
+  @Output() changeNoteEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.isTrash=this.noteObj.Trash;
@@ -28,6 +29,7 @@ export class IconsComponent implements OnInit {
     this.isTrash = !note.Trash;
     this.noteService.trashNote(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note trash status changed", response.data);
+      this.changeNoteEvent.emit("trashed");
     });
   }
 
@@ -35,6 +37,7 @@ export class IconsComponent implements OnInit {
     this.isArchive = !note.Archieve;
     this.noteService.archiveNote(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note archive status changed", response.data);
+      this.changeNoteEvent.emit("archived/unarchived");
     });
   }
 
@@ -42,12 +45,14 @@ export class IconsComponent implements OnInit {
     // this.isTrash = !note.Trash;
     this.noteService.restore(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note trash status changed", response.data);
+      this.changeNoteEvent.emit("restored");
     });
   }
 
   deleteforever(note:any){
     this.noteService.delete(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note deleted forever", response.data);
+      this.changeNoteEvent.emit("deleted");
     });
   }
   changeColor(newcolor: any){
@@ -56,7 +61,8 @@ export class IconsComponent implements OnInit {
       Colour:newcolor,
     }
     this.noteService.changeColor(data).subscribe((response:any)=>{
-      console.log("color changed",response.data)
+      console.log("color changed",response.data);
+      this.changeNoteEvent.emit("color changed");
     });
   }
 }

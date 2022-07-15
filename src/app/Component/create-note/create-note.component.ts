@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -11,9 +11,10 @@ export class CreateNoteComponent implements OnInit {
   createnote!:FormGroup;
 
   data:any;
-
+  
   constructor(private note:NoteService,private fb:FormBuilder) { }
-    isShow=false;
+  isShow=false;
+  @Output() createEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
     this.createnote = this.fb.group({
@@ -34,6 +35,7 @@ export class CreateNoteComponent implements OnInit {
       }
       this.note.createNote(body).subscribe((res:any)=>{
         console.log(res);
+        this.createEvent.emit("hello");
       })
     }
     else{

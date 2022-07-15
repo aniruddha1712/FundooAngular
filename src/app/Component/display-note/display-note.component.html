@@ -11,6 +11,6 @@
     <div class="takenote" (click)="openDialog(note)">
         <span>{{note.TakeNote}}</span>
     </div>
-    <app-icons [noteObj]="note"></app-icons>
+    <app-icons [noteObj]="note" (changeNoteEvent)="iconRefresh($event)"></app-icons>
   </div>
 </div>

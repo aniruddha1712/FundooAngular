@@ -21,4 +21,15 @@ export class GetAllNotesComponent implements OnInit {
       this.noteArray=res.Data
     })
   }
+  recieveMessage(e:any){
+    console.log(e);
+    this.getAllNote();
+  }
+  updateNote(e:any){
+    console.log(e);
+    this.getAllNote();
+  }
+  updatedIcon(e:any){
+    this.getAllNote();
+  }
 }

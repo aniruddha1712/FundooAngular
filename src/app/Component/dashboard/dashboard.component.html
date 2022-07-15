@@ -33,8 +33,9 @@
           src="../../../assets/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
     <div>
-      <button class="button"><img class="account-icon"
-          src="../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg"></button>
+      <button class="button" matTooltip="Sign out" (click)="signOut()">
+        <img class="account-icon" src="../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg">
+      </button>
     </div>
   </mat-toolbar>
 

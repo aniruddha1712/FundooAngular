@@ -22,4 +22,9 @@ export class ArchiveComponent implements OnInit {
     })
   }
 
+  updatedIcon(e:any){
+    this.getArchiveNote();
+
+  }
+
 }

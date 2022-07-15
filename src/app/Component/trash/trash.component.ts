@@ -22,4 +22,8 @@ export class TrashComponent implements OnInit {
     })
   }
 
+  updatedIcon(e:any){
+    this.getTrashNote();
+
+  }
 }

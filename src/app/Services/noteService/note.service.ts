@@ -57,7 +57,7 @@ export class NoteService {
   }
 
   getArchiveNote(){
-    console.log("Getting Archived notes",this.token);
+    console.log("Getting Archived notes");
 
     let header={
       headers: new HttpHeaders({
@@ -68,7 +68,7 @@ export class NoteService {
     return this.http.getService('https://localhost:44378/api/Note/getarchivenotes',true,header)
   }
   getTrashNote(){
-    console.log("Getting trashed notes",this.token);
+    console.log("Getting trashed notes");
 
     let header={
       headers: new HttpHeaders({
