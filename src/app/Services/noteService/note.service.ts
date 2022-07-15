@@ -90,4 +90,15 @@ export class NoteService {
     console.log("Note deleted");
     return this.http.deleteService(`https://localhost:44378/api/Note/deleteforever/${noteId}`,noteId);
   }
+
+  changeColor(data:any){
+    console.log(data);
+
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json'
+      })
+    }
+    return this.http.putService('https://localhost:44378/api/Note/changecolour',data,false,header)
+  }
 }

@@ -12,6 +12,11 @@ export class IconsComponent implements OnInit {
   isArchive: any;
   @Input() noteObj:any;
 
+  colorArray = [{Colorcode:"white", name:"White"},{Colorcode:"#f28b82", name:"Red"},{Colorcode:"#fbbc04", name:"Orange"},
+                {Colorcode:"#fff475", name:"Yellow"},{Colorcode:"#ccff90", name:"Green"},{Colorcode:"#a7ffeb", name:"Teel"},
+                {Colorcode:"#cbf0f8", name:"Blue"},{Colorcode:"#aecbfa", name:"Dark-Blue"},{Colorcode:"#d7aefb", name:"Purple"},
+                {Colorcode:"#fdcfe8", name:"Pink"},{Colorcode:"#e6c9a8", name:"Brown"},{Colorcode:"#e8eaed", name:"Gray"}];
+
   constructor(private noteService:NoteService) { }
 
   ngOnInit(): void {
@@ -43,6 +48,15 @@ export class IconsComponent implements OnInit {
   deleteforever(note:any){
     this.noteService.delete(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note deleted forever", response.data);
+    });
+  }
+  changeColor(newcolor: any){
+    let data={
+      NoteId:this.noteObj.NoteId,
+      Colour:newcolor,
+    }
+    this.noteService.changeColor(data).subscribe((response:any)=>{
+      console.log("color changed",response.data)
     });
   }
 }

@@ -10,6 +10,7 @@ import { NoteService } from 'src/app/Services/noteService/note.service';
 export class UpdateComponent implements OnInit {
   title:any;
   desc:any;
+  color:any;
 
   constructor(
     public dialogRef: MatDialogRef<UpdateComponent>,
@@ -20,6 +21,7 @@ export class UpdateComponent implements OnInit {
     console.log(this.data);
     this.title=this.data.Title;
     this.desc=this.data.TakeNote; 
+    this.color=this.data.Colour;
   }
 
   onClick(): void{

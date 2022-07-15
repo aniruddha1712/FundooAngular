@@ -6,9 +6,18 @@
     <button mat-icon-button matTooltip="Collaborator" *ngIf="!isTrash">
       <img src="../../../assets/person_add_FILL0_wght400_GRAD0_opsz48.svg">
     </button>
-    <button mat-icon-button matTooltip="Background options" *ngIf="!isTrash">
+
+    <button mat-icon-button matTooltip="Background options" [matMenuTriggerFor]="color" *ngIf="!isTrash">
       <img src="../../../assets/palette_FILL0_wght400_GRAD0_opsz48.svg">
     </button>
+    <mat-menu #color="matMenu">
+      <div fxLayout="row wrap" style=" width: 180px;">
+          <div *ngFor="let color of colorArray" class="bg-color">
+              <button mat-icon-button mat-raised-button [matTooltip]="color.name" [style.background]="color.Colorcode" (click)="changeColor(color.Colorcode)"></button>
+          </div>
+      </div>
+    </mat-menu>
+
     <button mat-icon-button matTooltip="Add image" *ngIf="!isTrash">
       <img src="../../../assets/image_FILL0_wght400_GRAD0_opsz48.svg">
     </button>

@@ -13,19 +13,23 @@
       <input class="search" placeholder="Search">
     </div>
     <div class="nav">
-      <button class="button"><img class="refres-icon"
+      <button class="button" matTooltip="Refresh"><img class="refres-icon"
           src="../../../assets/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
     <div>
-      <button class="button"><img class="agenda-icon"
-          src="../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg"></button>
+      <button mat-icon-button matTooltip="Grid view" (click)="toList()" *ngIf="!view" >
+        <img class="agenda-icon" src="../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg">
+      </button>
+      <button mat-icon-button matTooltip="List view" (click)="toList()" *ngIf="view" >
+        <img class="agenda-icon" src="../../../assets/grid_view_FILL0_wght400_GRAD0_opsz48.svg">
+      </button>
     </div>
     <div>
-      <button class="button"><img class="setting-icon"
+      <button class="button" matTooltip="Settings"><img class="setting-icon"
           src="../../../assets/settings_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
     <div>
-      <button class="button"><img class="apps-icon"
+      <button class="button" matTooltip="Apps"><img class="apps-icon"
           src="../../../assets/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
     </div>
     <div>

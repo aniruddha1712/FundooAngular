@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DataService } from 'src/app/Services/dataService/data.service';
 import { UpdateComponent } from '../update/update.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-display-note',
@@ -9,10 +11,13 @@ import { UpdateComponent } from '../update/update.component';
 })
 export class DisplayNoteComponent implements OnInit {
   @Input() childMessage: any;
+  message:any;
+  subscription:any;
 
-  constructor(private dialogs:MatDialog) { }
+  constructor(private dialogs:MatDialog,private dataservice:DataService){ }
 
   ngOnInit(): void {
+    this.subscription = this.dataservice.currentMessage.subscribe(message => this.message = message)
   }
 
   openDialog(note:any):void{
