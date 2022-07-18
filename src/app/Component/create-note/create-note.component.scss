@@ -1,6 +1,6 @@
 .container{
-  display: flex;
-  justify-content:space-around;
+  // display: flex;
+  // justify-content:space-around;
   padding: 25px;
   background: white;
 }
@@ -45,4 +45,15 @@ form{
 }
 .close{
   padding-top: 2px;
+}
+
+.container-xs,.note-xs,.note-sm{
+  display: flex;
+  width: fit-content;
+}
+.icons-xs,.icon-sm{
+  display: flex;
+  justify-content: flex-start;
+  // width: 60%;
+  height: fit-content;
 }

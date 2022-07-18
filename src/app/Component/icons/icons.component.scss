@@ -16,3 +16,12 @@ button:hover{
 .bg-color{
   padding: 2px;
 }
+
+.icon-row-xs,.icon-row-sm{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
