@@ -12,7 +12,6 @@ export class UpdateComponent implements OnInit {
   desc:any;
   color:any;
 
-
   constructor(
     public dialogRef: MatDialogRef<UpdateComponent>,
     @Inject(MAT_DIALOG_DATA)public data: any,private note:NoteService

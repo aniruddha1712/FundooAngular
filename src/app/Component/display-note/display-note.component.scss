@@ -44,7 +44,7 @@ span{
 app-icons,.pin-icon{
   visibility: hidden;
 }
-.note:hover,.note:visited,.note:focus-within,.note:active{
+.note:hover{
   app-icons,.pin-icon{visibility: visible;}
 }
 
@@ -60,4 +60,25 @@ app-icons,.pin-icon{
 button:hover{
   box-shadow: 0px 0px 1px grey;
   background-color: #e8e8e8;
+}
+
+::ng-deep .my-custom-dialog-class{
+  mat-dialog-container {
+    padding: 0;
+  }
+}
+
+.note-list{
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid lightgray;
+  width: 500px;
+  height: fit-content;
+}
+.note-list:hover{
+  app-icons,.pin-icon{visibility: visible;}
 }

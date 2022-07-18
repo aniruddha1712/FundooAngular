@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DataService } from 'src/app/Services/dataService/data.service';
 import { UpdateComponent } from '../update/update.component';
 import { Subscription } from 'rxjs';
+import { FilterDataService } from 'src/app/Services/dataService/filter-data.service';
 
 @Component({
   selector: 'app-display-note',
@@ -13,19 +14,38 @@ export class DisplayNoteComponent implements OnInit {
   @Input() childMessage: any;
   message:any;
   subscription:any;
+  searchString:any='';
+  grid:any=false;
 
-  constructor(private dialogs:MatDialog,private dataservice:DataService){ }
-  @Output() updateEvent = new EventEmitter<string>();
+  constructor(private dialogs:MatDialog,private dataservice:DataService,private filterDataService:FilterDataService){ }
+  @Output() updateEvent = new EventEmitter<any>();
   @Output() updatedIconData = new EventEmitter<any>();
 
   ngOnInit(): void {
-    this.subscription = this.dataservice.currentMessage.subscribe(message => this.message = message)
+    this.subscription = this.dataservice.currentMessage.subscribe(message => 
+      {this.message = message
+       console.log("message recieved",message)  ;
+       if(this.message=='row'){
+        this.grid=false;
+       }
+       else if(this.message=='column'){
+        this.grid=true;
+       }
+      });
+    
+
+    this.filterDataService.currentMessage.subscribe((response: any) => {
+      console.log("Data recieved", response);
+      this.searchString = response
+    })
   }
 
   openDialog(note:any):void{
     const dialogRef = this.dialogs.open(UpdateComponent,{
-      width: '500px', height: 'fit-content',
+      width: 'fit-content', height: 'fit-content',
       data: note,
+      panelClass: 'my-custom-dialog-class'
+
     });
 
     dialogRef.afterClosed().subscribe((res:any) =>{
@@ -35,8 +55,6 @@ export class DisplayNoteComponent implements OnInit {
   }
 
   iconRefresh($event:any){
-    // this.iconMsg = $event;
     this.updatedIconData.emit("hello");
-    // this.getCollabsList()
   }
 }

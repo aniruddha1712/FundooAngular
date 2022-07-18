@@ -25,7 +25,6 @@ import { RegisterComponent } from './Component/register/register.component';
 import { LoginComponent } from './Component/login/login.component';
 import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
-import { DemocomponentComponent } from './Component/democomponent/democomponent.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { IconsComponent } from './Component/icons/icons.component';
 import { CreateNoteComponent } from './Component/create-note/create-note.component';
@@ -34,6 +33,7 @@ import { GetAllNotesComponent } from './Component/get-all-notes/get-all-notes.co
 import { ArchiveComponent } from './Component/archive/archive.component';
 import { TrashComponent } from './Component/trash/trash.component';
 import { UpdateComponent } from './Component/update/update.component';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,6 @@ import { UpdateComponent } from './Component/update/update.component';
     LoginComponent,
     ForgotPasswordComponent,
     ResetPasswordComponent,
-    DemocomponentComponent,
     DashboardComponent,
     IconsComponent,
     CreateNoteComponent,
@@ -50,7 +49,8 @@ import { UpdateComponent } from './Component/update/update.component';
     GetAllNotesComponent,
     ArchiveComponent,
     TrashComponent,
-    UpdateComponent
+    UpdateComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -6,36 +6,40 @@
     <div>
       <img class="keepImage" src="../../../assets/keep_2020q4_48dp.png">
     </div>
-    <h1 class="example-app-name">Fundoo</h1>
+    <div ngClass.sm="example-app-name-sm" ngClass.xs="example-app-name-xs">
+      <h1 class="example-app-name">Fundoo</h1>
+    </div>
 
-    <div class="searchbox">
+    <div class="searchbox" ngClass.xs="searchbox-xs" ngClass.sm="searchbox-sm">
       <img class="search-icon" src="../../../assets/search_FILL0_wght400_GRAD0_opsz48.svg">
-      <input class="search" placeholder="Search">
+      <input class="search" placeholder="Search" [(ngModel)]="search" (keyup)="searchNote($event)">
     </div>
-    <div class="nav">
-      <button class="button" matTooltip="Refresh"><img class="refres-icon"
-          src="../../../assets/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
-    </div>
-    <div>
-      <button mat-icon-button matTooltip="Grid view" (click)="toList()" *ngIf="!view" >
-        <img class="agenda-icon" src="../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg">
-      </button>
-      <button mat-icon-button matTooltip="List view" (click)="toList()" *ngIf="view" >
-        <img class="agenda-icon" src="../../../assets/grid_view_FILL0_wght400_GRAD0_opsz48.svg">
-      </button>
-    </div>
-    <div>
-      <button class="button" matTooltip="Settings"><img class="setting-icon"
-          src="../../../assets/settings_FILL0_wght400_GRAD0_opsz48.svg"></button>
-    </div>
-    <div>
-      <button class="button" matTooltip="Apps"><img class="apps-icon"
-          src="../../../assets/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
-    </div>
-    <div>
-      <button class="button" matTooltip="Sign out" (click)="signOut()">
-        <img class="account-icon" src="../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg">
-      </button>
+    <div fxLayout="row" fxLayoutAlign="space-between center" class="nav" ngClass.xs="nav-xs" ngClass.sm="nav-sm">
+      <div class="refresh" ngClass.sm="refresh-sm">
+        <button class="button" matTooltip="Refresh"><img class="refres-icon"
+            src="../../../assets/refresh_FILL0_wght400_GRAD0_opsz48.svg"></button>
+      </div>
+      <div class="listview" ngClass.xs="listview-xs" ngClass.sm="listview-sm">
+        <button mat-icon-button matTooltip="Grid view" (click)="toList()" *ngIf="!view" >
+          <img class="agenda-icon" src="../../../assets/view_agenda_FILL0_wght400_GRAD0_opsz48.svg">
+        </button>
+        <button mat-icon-button matTooltip="List view" (click)="toList()" *ngIf="view" >
+          <img class="agenda-icon" src="../../../assets/grid_view_FILL0_wght400_GRAD0_opsz48.svg">
+        </button>
+      </div>
+      <div>
+        <button class="button" matTooltip="Settings"><img class="setting-icon"
+            src="../../../assets/settings_FILL0_wght400_GRAD0_opsz48.svg"></button>
+      </div>
+      <div>
+        <button class="button" matTooltip="Apps"><img class="apps-icon"
+            src="../../../assets/apps_FILL0_wght400_GRAD0_opsz48.svg"></button>
+      </div>
+      <div>
+        <button class="button" matTooltip="Sign out" (click)="signOut()">
+          <img class="account-icon" src="../../../assets/account_circle_FILL0_wght400_GRAD0_opsz48.svg">
+        </button>
+      </div>
     </div>
   </mat-toolbar>
 

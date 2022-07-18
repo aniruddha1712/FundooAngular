@@ -79,7 +79,7 @@ h1.example-app-name {
   height: 30px;
   border: 0px white; 
   background: none;
-  width: 700px; 
+  width: 90%; 
   font-size: large;
 }
 
@@ -110,12 +110,10 @@ input {border:0;outline:0;}
 }
 .account-icon{
   padding-top: 12px; 
-  padding-left: 0px;
   block-size: 23px;
 }
 .apps-icon{
   padding-top: 12px; 
-  padding-left: 30px;
   block-size: 23px;
 }
 .refres-icon{
@@ -130,4 +128,22 @@ input {border:0;outline:0;}
   padding-right: 2px;
   padding-top: 1px;
   block-size: 23px;
+}
+
+.searchbox-xs{
+  width: 30px;
+  margin-left: 0%;
+}
+
+.searchbox-sm{
+  width: 100px;
+  margin-left: 0%;
+}
+
+.listview-sm,.listview-xs,.example-app-name-sm,.example-app-name-xs{
+  visibility: hidden;
+}
+.nav-sm,.nav-xs{
+  margin: 0%;
+  width: 10%
 }

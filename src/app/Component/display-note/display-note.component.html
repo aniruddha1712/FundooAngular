@@ -1,6 +1,8 @@
 <div class="container" ngClass.xs="container-xs" ngClass.md="container-md" 
-    fxLayout={{message}} fxLayoutAlign="start center">
-  <div class="note" fxLayout="column" fxLayoutAlign="center start" *ngFor="let note of childMessage" [style.background]="note.Colour">
+    fxLayout={{message}} fxLayoutAlign="start center" *ngIf="!grid">
+  <div class="note" fxLayout="column" fxLayoutAlign="center start" *ngFor="let note of childMessage | filter : searchString"
+       [style.background]="note.Colour">
+
     <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
       <span (click)="openDialog(note)">{{note.Title}}</span>
       <button mat-icon-button matTooltip="Pin note">
@@ -14,3 +16,23 @@
     <app-icons [noteObj]="note" (changeNoteEvent)="iconRefresh($event)"></app-icons>
   </div>
 </div>
+
+<div class="container" ngClass.xs="container-xs" ngClass.md="container-md" 
+    fxLayout="column" fxLayoutAlign="start center" *ngIf="grid">
+  <div class="note-list" fxLayout="column" fxLayoutAlign="center start" *ngFor="let note of childMessage | filter : searchString"
+       [style.background]="note.Colour">
+
+    <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
+      <span (click)="openDialog(note)">{{note.Title}}</span>
+      <button mat-icon-button matTooltip="Pin note">
+        <img class="pin-icon" src="../../../assets/push_pin_FILL0_wght400_GRAD0_opsz48.svg" alt="pin" *ngIf="!note.Trash">
+      </button>
+    </div>
+
+    <div class="takenote" (click)="openDialog(note)">
+        <span>{{note.TakeNote}}</span>
+    </div>
+    <app-icons [noteObj]="note" (changeNoteEvent)="iconRefresh($event)"></app-icons>
+  </div>
+</div>
+
