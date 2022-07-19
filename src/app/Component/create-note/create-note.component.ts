@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-create-note',
@@ -12,7 +13,7 @@ export class CreateNoteComponent implements OnInit {
 
   data:any;
   
-  constructor(private note:NoteService,private fb:FormBuilder) { }
+  constructor(private note:NoteService,private fb:FormBuilder,private snackBar:MatSnackBar) { }
   isShow=false;
   @Output() createEvent = new EventEmitter<string>();
 
@@ -36,7 +37,11 @@ export class CreateNoteComponent implements OnInit {
       this.note.createNote(body).subscribe((res:any)=>{
         console.log(res);
         this.createEvent.emit("hello");
-      })
+      });
+      this.snackBar.open('New Note Created','', {
+        duration: 3000,
+        verticalPosition: 'bottom'
+      });
     }
     else{
       console.log("cannot create note");

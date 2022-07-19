@@ -4,6 +4,7 @@ import { DataService } from 'src/app/Services/dataService/data.service';
 // import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { FilterDataService } from 'src/app/Services/dataService/filter-data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class DashboardComponent implements OnDestroy ,OnInit{
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private dataservice:DataService,
-    private router: Router,private filterDataService:FilterDataService) {
+    private router: Router,private filterDataService:FilterDataService,private snackBar:MatSnackBar) {
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -64,12 +65,21 @@ export class DashboardComponent implements OnDestroy ,OnInit{
     console.log("logged out");
     localStorage.removeItem("token");
     this.router.navigateByUrl('/login');
+    this.snackBar.open('Logout succssful' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center',
+    });
   }
 
   searchNote(event:any){
     this.search=event.target.value
     this.filterDataService.changeMessage(event.target.value)
   }
+
+  reloadCurrentPage() {
+    window.location.reload();
+   }
  
 }
   

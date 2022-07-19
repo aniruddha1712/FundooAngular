@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/Services/userService/user.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  constructor( private fb:FormBuilder, private user:UserService) { }
+  constructor( private fb:FormBuilder, private user:UserService,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -46,7 +47,11 @@ export class RegisterComponent implements OnInit {
       }
       this.user.register(data).subscribe((res:any)=>{
         console.log(res);
-      })
+      });
+      this.snackBar.open('Registration successful','', {
+        duration: 3000,
+        verticalPosition: 'bottom'
+      });
     }
     else{
       console.log("invalid data",this.registerForm.value);

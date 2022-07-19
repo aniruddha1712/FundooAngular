@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/userService/user.service';
 
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/Services/userService/user.service';
 export class LoginComponent implements OnInit {
   loginForm !: FormGroup;
 
-  constructor( private fb:FormBuilder, private user:UserService,private router: Router) { }
+  constructor( private fb:FormBuilder, private user:UserService,private router: Router,private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -32,7 +33,11 @@ export class LoginComponent implements OnInit {
         console.log(res.Token);
         localStorage.setItem('token',res.Token);
         this.router.navigateByUrl('/dashboard/notes');
-      })
+      });
+      this.snackBar.open('Logged in successfully','', {
+        duration: 3000,
+        verticalPosition: 'bottom'
+      });
     }
     else{
       console.log("invalid data",this.loginForm.value);

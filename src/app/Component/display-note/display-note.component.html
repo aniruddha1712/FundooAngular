@@ -1,6 +1,6 @@
 <div class="container" ngClass.xs="container-xs" ngClass.md="container-md" ngClass.sm="main-container-sm"
     fxLayout={{message}} fxLayoutAlign="start center" *ngIf="!grid">
-  <div class="note" fxLayout="column" fxLayoutAlign="center center" *ngFor="let note of childMessage | filter : searchString"
+  <div class="note" fxLayout="column" fxLayoutAlign="center start" *ngFor="let note of childMessage | filter : searchString"
        [style.background]="note.Colour">
 
     <div class="title" fxLayout="row" fxLayoutAlign="space-between center">
@@ -18,7 +18,7 @@
 </div>
 
 <div class="container-list" ngClass.xs="container-list-xs" ngClass.md="container-list-md" 
-    fxLayout="column" fxLayoutAlign="start center" *ngIf="grid">
+    fxLayout={{message}} fxLayoutAlign="start center" *ngIf="grid">
   <div class="note-list" fxLayout="column" fxLayoutAlign="center start" *ngFor="let note of childMessage | filter : searchString"
        [style.background]="note.Colour">
 

@@ -70,6 +70,7 @@ button:hover{
 ::ng-deep .my-custom-dialog-class{
   mat-dialog-container {
     padding: 0;
+    border-radius: 10px;
   }
 }
 

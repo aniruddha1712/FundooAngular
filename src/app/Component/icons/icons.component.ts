@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { NoteService } from 'src/app/Services/noteService/note.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class IconsComponent implements OnInit {
                 {Colorcode:"#cbf0f8", name:"Blue"},{Colorcode:"#aecbfa", name:"Dark-Blue"},{Colorcode:"#d7aefb", name:"Purple"},
                 {Colorcode:"#fdcfe8", name:"Pink"},{Colorcode:"#e6c9a8", name:"Brown"},{Colorcode:"#e8eaed", name:"Gray"}];
 
-  constructor(private noteService:NoteService) { }
+  constructor(private noteService:NoteService, private snackBar:MatSnackBar) { }
   @Output() changeNoteEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
@@ -31,6 +32,11 @@ export class IconsComponent implements OnInit {
       console.log("Note trash status changed", response.data);
       this.changeNoteEvent.emit("trashed");
     });
+    this.snackBar.open('Note Trashed','', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
+    });
   }
 
   archive(note:any){
@@ -38,6 +44,11 @@ export class IconsComponent implements OnInit {
     this.noteService.archiveNote(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note archive status changed", response.data);
       this.changeNoteEvent.emit("archived/unarchived");
+    });
+    this.snackBar.open('Note archive status changed' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
     });
   }
 
@@ -47,12 +58,22 @@ export class IconsComponent implements OnInit {
       console.log("Note trash status changed", response.data);
       this.changeNoteEvent.emit("restored");
     });
+    this.snackBar.open('Note Restored' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
+    });
   }
 
   deleteforever(note:any){
     this.noteService.delete(this.noteObj.NoteId).subscribe((response: any) => {
       console.log("Note deleted forever", response.data);
       this.changeNoteEvent.emit("deleted");
+    });
+    this.snackBar.open('Note deleted Permanently','', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
     });
   }
   changeColor(newcolor: any){
@@ -62,7 +83,12 @@ export class IconsComponent implements OnInit {
     }
     this.noteService.changeColor(data).subscribe((response:any)=>{
       console.log("color changed",response.data);
-      this.changeNoteEvent.emit("color changed");
+      this.changeNoteEvent.emit(newcolor);
+    });
+    this.snackBar.open('Colour changed successfully' ,'', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'start'
     });
   }
 }

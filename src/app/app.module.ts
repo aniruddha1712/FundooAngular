@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { AuthGuardService } from './Services/AuthService/auth-guard.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { RegisterComponent } from './Component/register/register.component';
 import { LoginComponent } from './Component/login/login.component';
@@ -70,7 +71,8 @@ import { FilterPipe } from './Pipes/filter.pipe';
     MatIconModule,
     MatDialogModule,
     MatMenuModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuardService],
   bootstrap: [AppComponent]

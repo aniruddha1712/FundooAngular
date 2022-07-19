@@ -85,18 +85,11 @@ h1.example-app-name {
 
 input {border:0;outline:0;}
 
-.toolbarSetting
-{
+.toolbarSetting{
   padding-left: 30px;
   padding-top: 10px;
 }
 
-.button
-{
-  border: 0px;
-  background-color: transparent;
-  padding-left: 15px;
-}
 .nav{
   margin-left: 10%
 }
@@ -108,25 +101,8 @@ input {border:0;outline:0;}
   padding-top: 5px; 
   block-size: 23px;
 }
-.account-icon{
-  padding-top: 12px; 
-  block-size: 23px;
-}
-.apps-icon{
-  padding-top: 12px; 
-  block-size: 23px;
-}
-.refres-icon{
-  padding-top: 10px;
-  block-size: 23px;
-}
-.setting-icon{
-  padding-top: 10px;
-  block-size: 23px;
-}
-.agenda-icon{
-  padding-right: 2px;
-  padding-top: 1px;
+
+.header-icons{
   block-size: 23px;
 }
 
@@ -146,4 +122,11 @@ input {border:0;outline:0;}
 .nav-sm,.nav-xs{
   margin: 0%;
   width: 10%
+}
+button:hover{
+  box-shadow: 0px 0px 1px grey;
+  background-color: #e8e8e8;
+}
+.app-acc{
+  padding-left: 30px;
 }
