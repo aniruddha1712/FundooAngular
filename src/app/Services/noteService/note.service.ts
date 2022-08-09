@@ -47,13 +47,25 @@ export class NoteService {
   trashNote(noteId: any){
     console.log(noteId);
     console.log("Note trashed");
-    return this.http.deleteService(`https://localhost:44378/api/Note/movetotrash/${noteId}`,noteId);
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.http.deleteService(`https://localhost:44378/api/Note/movetotrash/${noteId}`,noteId,true,header);
   }
 
   archiveNote(noteId: any){
     console.log(noteId);
     console.log("Note Archived");
-    return this.http.patchService(`https://localhost:44378/api/Note/archivenote/${noteId}`,noteId);
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.http.patchService(`https://localhost:44378/api/Note/archivenote/${noteId}`,noteId,true,header);
   }
 
   getArchiveNote(){
@@ -82,13 +94,25 @@ export class NoteService {
   restore(noteId: any){
     console.log(noteId);
     console.log("Note restored");
-    return this.http.patchService(`https://localhost:44378/api/Note/restorefromtrash/${noteId}`,noteId);
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.http.patchService(`https://localhost:44378/api/Note/restorefromtrash/${noteId}`,noteId,true,header);
   }
 
   delete(noteId: any){
     console.log(noteId);
     console.log("Note deleted");
-    return this.http.deleteService(`https://localhost:44378/api/Note/deleteforever/${noteId}`,noteId);
+    let header={
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+        'Authorization':'Bearer '+this.token
+      })
+    }
+    return this.http.deleteService(`https://localhost:44378/api/Note/deleteforever/${noteId}`,noteId,true,header);
   }
 
   changeColor(data:any){
@@ -96,9 +120,10 @@ export class NoteService {
 
     let header={
       headers: new HttpHeaders({
-        'Content-Type' : 'application/json'
+        'Content-Type' : 'application/json',
+        'Authorization':'Bearer '+this.token
       })
     }
-    return this.http.putService('https://localhost:44378/api/Note/changecolour',data,false,header)
+    return this.http.putService('https://localhost:44378/api/Note/changecolour',data,true,header)
   }
 }
